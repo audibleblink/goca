@@ -7,6 +7,7 @@ GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 
 BUILD_DIR=build/
+LDFLAGS=-ldflags="-s -w"
 
 APPNAME=GOCA
 BINARY_NAME=goca
