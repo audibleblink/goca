@@ -17,6 +17,7 @@
 package goca
 
 import (
+	"crypto/tls"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -154,7 +155,11 @@ func (c *Controller) getURL(url string) ([]byte, error) {
 	req.Header.Set("User-Agent", c.input.UA)
 
 	// Create a new client
-	client := &http.Client{} // This struct accepts config params
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+
 	res, err := client.Do(req)
 	if err != nil {
 		return body, err
