@@ -26,7 +26,7 @@ import (
 )
 
 // UserAgent defines the UserAgent used by goca
-const UserAgent = "The_Goca_v0.1"
+const UserAgent = "Mediapartners-Google"
 
 var (
 	// AppName is the Application name
